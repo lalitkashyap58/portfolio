@@ -7,6 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Personal Portfolio website</title>
         <link rel="stylesheet" href="styles.css">
+        <script src="https://kit.fontawesome.com/9cd33b3071.js" crossorigin="anonymous"></script>
+
     </head>
 
     <body>
@@ -14,14 +16,15 @@
             <div class="container">
                 <nav>
                     <img src="assets/logo1.png" alt="" class="logo">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Contact</a></li>
-
+                    <ul id="sidemenu">
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <i class="fa-sharp fa-solid fa-circle-xmark" onclick="closemenu()"></i>
                     </ul>
+                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
                 </nav>
                 <div class="header-text">
                     <p>Engineering Student</p>
@@ -76,6 +79,111 @@
 
             </div>
         </div>
+
+        <!-- --------services---------- -->
+        <div id="services">
+            <div class="container">
+                <h1 class="sub-title">
+                    My Services
+                </h1>
+                <div class="services-list">
+                    <div>
+                        <i class="fa-solid fa-code"></i>
+                        <h2>Web Development</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto sequi aliquid doloremque sed
+                            corporis, illum veniam repellat omnis, assumenda provident sit, ipsa debitis quae. Porro,
+                            aliquid. Sunt eum dolores sapiente!</p>
+                        <a href="#"> Learn more</a>
+                    </div>
+                    <div>
+                        <i class="fa-brands fa-react"></i>
+                        <h2>Front-end Development</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto sequi aliquid doloremque sed
+                            corporis, illum veniam repellat omnis, assumenda provident sit, ipsa debitis quae. Porro,
+                            aliquid. Sunt eum dolores sapiente!</p>
+                        <a href="#"> Learn more</a>
+                    </div>
+                    <div>
+                        <i class="fa-regular fa-circle-nodes"></i>
+                        <h2>Back-end Development</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto sequi aliquid doloremque sed
+                            corporis, illum veniam repellat omnis, assumenda provident sit, ipsa debitis quae. Porro,
+                            aliquid. Sunt eum dolores sapiente!</p>
+                        <a href="#"> Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ------------portfolio--------------- -->
+        <div id="portfolio">
+            <div class="container">
+                <h1 class="subtitle">
+                    My Work
+                </h1>
+                <div class="work-list">
+                    <div class="work">
+                        <img src="assets/work1.avif" alt="">
+                        <div class="layer">
+                            <h3>Social Media Website</h3>
+                            <p>The app contains you go the talented people around the world.</p>
+                            <a href="#"><i class="fa-solid fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="assets/work2.avif" alt="">
+                        <div class="layer">
+                            <h3>Music app</h3>
+                            <p>The app contains you go the talented people around the world.</p>
+                            <a href="#"><i class="fa-solid fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+
+                        <img src="assets/work3.avif" alt="">
+                        <div class="layer">
+                            <h3>Online Shopping App</h3>
+                            <p>The app contains you go the talented people around the world.</p>
+                            <a href="#"><i class="fa-solid fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn">See More</a>
+            </div>
+        </div>
+
+        <!-- -------contact--------- -->
+        <div id="contact">{
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Contact me</h1>
+                        <p><i class="fa-sharp fa-solid fa-paper-plane"></i>contact@example.com</p>
+                        <p><i class="fa-sharp fa-solid fa-phone-volume"></i>01234567789</p>
+                        <div class="social-icons">
+                            <a href=""><i class="fa-brands fa-instagram"></i></a>
+                            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                        <a href="assets/2020UIT3004 resume.pdf" download class="btn btn2">Download CV</a>
+
+                    </div>
+
+                    <div class="contact-right">
+                        <form name="submit-to-google-sheet">
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="Email" placeholder="your Email" required>
+                            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                            <button type="submit" class="btn btn2 ">Submit</button>
+                        </form>
+                        <span id="msg"></span>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
         <script>
             var tablinks = document.getElementsByClassName("tab-links");
             var tabcontents = document.getElementsByClassName("tab-contents");
@@ -88,6 +196,35 @@
                 event.currentTarget.classList.add("active-links");
                 document.getElementById(tabname).classList.add("active-tabs");
             }
+        </script>
+        <script>
+            var sidemenu = document.getElementById("sidemenu");
+            function openmenu() {
+                sidemenu.style.right = "0";
+
+            }
+            function closemenu() {
+                sidemenu.style.right = "-200px";
+
+            }
+        </script>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwxavSL62aMPhLR-MiqKRak-aq5vMQ6ynySgD8onRZ4D3ecmNXtwbfV609mjRjsY6POCA/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg = document.getElementById("msg")
+            form.addEventListener('submit', e => {
+                e.preventDefault()
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then(response => {
+                        msg.innerHTML = "Message sent successfully"
+                        setTimeout(function () {
+                            msg.innerHTML = ""
+
+                        }, 5000)
+                        form.reset()
+                    })
+                    .catch(error => console.error('Error!', error.message))
+            })
         </script>
 
     </body>
