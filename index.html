@@ -171,7 +171,8 @@
 
                     <div class="contact-right">
                         <form name="submit-to-google-sheet">
-                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input class="input" onChange="checkInput(this)" onKeyup="checkInput(this)" type="text"
+                                autocomplete="off" placeholder="name" required>
                             <input type="email" name="Email" placeholder="your Email" required>
                             <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                             <button type="submit" class="btn btn2 ">Submit</button>
@@ -188,11 +189,24 @@
         <script>
             var tablinks = document.getElementsByClassName("tab-links");
             var tabcontents = document.getElementsByClassName("tab-contents");
-            function opentab(tabname) {
-                for (tablink of tablinks) {
+            function checkInput(ob)
+            {
+                $('.input').keyup(function ()
+                {
+                    if (!this.value.match(/[0-9]/))
+                    {
+                        this.value = this.value.replace(/[^0-9]/g, '');
+                    }
+                });
+            };
+            function opentab(tabname)
+            {
+                for (tablink of tablinks)
+                {
                     tablink.classList.remove("active-links");
                 }
-                for (tabcontent of tabcontents) {
+                for (tabcontent of tabcontents)
+                {
                     tabcontent.classList.remove("active-tabs");
                 }
 
@@ -201,10 +215,12 @@
             }
 
             var sidemenu = document.getElementById("sidemenu");
-            function openmenu() {
+            function openmenu()
+            {
                 sidemenu.style.right = "0";
             }
-            function closemenu() {
+            function closemenu()
+            {
                 sidemenu.style.right = "-200px";
             }
 
@@ -212,12 +228,15 @@
                 "https://script.google.com/macros/s/AKfycbwxavSL62aMPhLR-MiqKRak-aq5vMQ6ynySgD8onRZ4D3ecmNXtwbfV609mjRjsY6POCA/exec";
             const form = document.forms["submit-to-google-sheet"];
             const msg = document.getElementById("msg");
-            form.addEventListener("submit", (e) => {
+            form.addEventListener("submit", (e) =>
+            {
                 e.preventDefault();
                 fetch(scriptURL, { method: "POST", body: new FormData(form) })
-                    .then((response) => {
+                    .then((response) =>
+                    {
                         msg.innerHTML = "Message sent successfully";
-                        setTimeout(function () {
+                        setTimeout(function ()
+                        {
                             msg.innerHTML = "";
                         }, 5000);
                         form.reset();
